@@ -32,6 +32,7 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt-get install -y libxshmfence-dev libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils google-chrome-stable snapd
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo npm install -g pm2
 sudo npm install -g pm2
 sudo apt install nginx snapd
@@ -96,8 +97,8 @@ sudo env PATH=\$PATH:/usr/bin pm2 startup ubuntu -u deploy --hp /home/deploy
 
 ### Comandos devem ser executados a cada Instância.
 Observações Importantes
-- Incrementar o número das portas 8080 e 3333 em 1 para cada instalação
-    - Ex.: Primeira instalação portas 8080 e 3333, segunda instalação porta 8081 e 3334
+- Incrementar o número das portas 8080 e 3080 em 1 para cada instalação
+    - Ex.: Primeira instalação portas 8080 e 3080, segunda instalação porta 8081 e 3081
 - Atenção a substituição dos parâmetros em maiúsculo nos comandos por nomes correspondentes. 
     - Ex.: `PASTA_DA_INSTALACAO`, substituir por `clienteabc`
     - Ex.: `BACKEND_URL`, substituir por `api.arquitetodigital.com.br`
@@ -174,7 +175,7 @@ Alterar o arquivo .env, substituindo as variáveis indicadas na tabela pelo valo
 | -------- | ----- | 
 | REACT_APP_BACKEND_URL | https://BACKEND_URL |
 | REACT_APP_HOURS_CLOSE_TICKETS_AUTO |  |
-| SERVER_PORT | 3333 |
+| SERVER_PORT | 3080 |
 
 Continuando a instalação
 ```shell
@@ -192,7 +193,7 @@ server {
   server_name FRONTEND_URL;
 
   location / {
-    proxy_pass http://127.0.0.1:3333;
+    proxy_pass http://127.0.0.1:3080;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection 'upgrade';
