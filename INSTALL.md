@@ -105,9 +105,10 @@ Observações Importantes
 - O comando para criar a chave JWT é executado 2 vezes, pois a chave é utilizada nas variáveis `JWT_REFRESH_SECRET` e `JWT_SECRET`
 - Usar HTTPS nas URLs de backend e frontend
 
-Logar no usuário Deploy
+Logar no usuário Root
 ```shell
-su deploy
+su root
+cd ~
 ```
 Criar banco MySQL
 ```shell
@@ -115,9 +116,9 @@ mysql -u root -p
 ```
 No prompt do MySQL executar os comandos abaixo
 ```mysql
-mysql> CREATE DATABASE NOME_DO_DB_CLIENTE;
-mysql> GRANT ALL ON  NOME_DO_DB_CLIENTE.* TO 'USUARIO_DB_PRESSTICKET'@'%';
-mysql> FLUSH PRIVILEGES;
+mysql> create database NOME_DO_DB_CLIENTE;
+mysql> grant all on NOME_DO_DB_CLIENTE.* to 'USUARIO_DB_PRESSTICKET'@'%';
+mysql> flush privileges;
 mysql> exit;
 ```
 
@@ -126,7 +127,7 @@ Copiar as chaves JWT
 ```shell
 su deploy
 cd ~
-git clone https://github.com/LCarneiroAD/Press-Ticket PASTA_DA_INSTALACAO
+git clone https://github.com/rtenorioh/Press-Ticket PASTA_DA_INSTALACAO
 cd PASTA_DA_INSTALACAO
 cd backend
 ```
