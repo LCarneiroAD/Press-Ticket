@@ -85,6 +85,14 @@ http {
     client_max_body_size 50M;
 }
 ```
+Abrir o crontab com o comando abaixo e adicionar conteúdo indicado posteriormente
+```crontab
+crontab -e
+```
+Adicionar a linha abaixo para renovação automática do certificado digital  rodar a cada 12 horas no crontab
+```crontab
+0 */12 * * * certbot -q renew --nginx
+```
 Acessando o usuário deploy e parametrizando seu ambiente
 ```shell
 su deploy
