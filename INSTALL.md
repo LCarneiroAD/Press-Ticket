@@ -105,6 +105,10 @@ Observações Importantes
 - O comando para criar a chave JWT é executado 2 vezes, pois a chave é utilizada nas variáveis `JWT_REFRESH_SECRET` e `JWT_SECRET`
 - Usar HTTPS nas URLs de backend e frontend
 
+Logar no usuário Deploy
+```shell
+su deploy
+```
 Criar banco MySQL
 ```shell
 mysql -u root -p   
