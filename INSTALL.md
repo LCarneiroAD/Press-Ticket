@@ -94,13 +94,6 @@ Adicionar a linha abaixo para renovação automática do certificado digital  ro
 ```crontab
 0 */12 * * * certbot -q renew --nginx
 ```
-Acessando o usuário deploy e parametrizando seu ambiente
-```shell
-su deploy
-su - ${USER}
-cd ~
-sudo env PATH=\$PATH:/usr/bin pm2 startup ubuntu -u deploy --hp /home/deploy
-```
 Criando um agendamento para atualizar automaticamente os certificados digitais
 Digitar o comando abaixo e se perguntar o editor de preferência, escolher a opção nano, geralmente a opção 1
 ```shell
@@ -109,6 +102,14 @@ crontab -e
 Dentro do editor, na última linha adicione o comando abaixo
 ```nano
 0 */12 * * * certbot -q renew --nginx
+```
+
+Acessando o usuário deploy e parametrizando seu ambiente
+```shell
+su deploy
+su - ${USER}
+cd ~
+sudo env PATH=\$PATH:/usr/bin pm2 startup ubuntu -u deploy --hp /home/deploy
 ```
 
 
