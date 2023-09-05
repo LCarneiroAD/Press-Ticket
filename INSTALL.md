@@ -52,6 +52,7 @@ No prompt do MySQL executar os comandos abaixo
 ```mysql
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'SENHA_UNICA_ROOT';
 mysql> CREATE USER 'USUARIO_DB_PRESSTICKET'@'%' IDENTIFIED BY 'SENHA_UNICA_USER_PRESSTICKET';
+mysql> CREATE USER 'USUARIO_SISTEMA_EXTERNO'@'%' IDENTIFIED WITH mysql_native_password BY 'SENHA_UNICA_USER_EXTERNO';
 mysql> FLUSH PRIVILEGES;
 mysql> exit;
 ```
@@ -130,6 +131,7 @@ No prompt do MySQL executar os comandos abaixo
 ```mysql
 mysql> create database NOME_DO_DB_CLIENTE;
 mysql> grant all on NOME_DO_DB_CLIENTE.* to 'USUARIO_DB_PRESSTICKET'@'%';
+mysql> grant all on NOME_DO_DB_CLIENTE.* to 'USUARIO_SISTEMA_EXTERNO'@'%';
 mysql> flush privileges;
 mysql> exit;
 ```
